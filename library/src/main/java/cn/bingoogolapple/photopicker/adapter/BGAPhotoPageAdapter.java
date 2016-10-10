@@ -46,7 +46,6 @@ public class BGAPhotoPageAdapter extends PagerAdapter {
             @Override
             public void onDrawableChanged(Drawable drawable) {
                 if (drawable != null && drawable.getIntrinsicHeight() > drawable.getIntrinsicWidth() && drawable.getIntrinsicHeight() > BGAPhotoPickerUtil.getScreenHeight(imageView.getContext())) {
-                    photoViewAttacher.setIsSetTopCrop(true);
                     photoViewAttacher.setUpdateBaseMatrix();
                 } else {
                     photoViewAttacher.update();
