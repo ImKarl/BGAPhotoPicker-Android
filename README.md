@@ -1,6 +1,6 @@
 :running:BGAPhotoPicker-Android:running:
 ============
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/cn.bingoogolapple/bga-photopicker/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cn.bingoogolapple/bga-photopicker)
+[![](https://jitpack.io/v/ImKarl/BGAPhotoPicker-Android.svg)](https://jitpack.io/#ImKarl/BGAPhotoPicker-Android)
 
 将 [MeiqiaSDK-Android](https://github.com/Meiqia/MeiqiaSDK-Android) 里的图库单独抽出来开源，将其中的 GridView、ListView和RelativeLayout 换成 RecyclerView 和 Toolbar，方便在以后的项目中直接依赖使用。Demo 中模仿了微信朋友圈的部分功能，详细用法请查看 Demo。希望能该库帮正在做这几个功能的猿友节省开发时间。
 
