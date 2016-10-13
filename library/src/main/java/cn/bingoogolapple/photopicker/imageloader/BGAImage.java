@@ -5,6 +5,8 @@ import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.widget.ImageView;
 
+import cn.bingoogolapple.photopicker.util.BGAPhotoPickerUtil;
+
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com
  * 创建时间:16/6/25 下午5:03
@@ -13,9 +15,35 @@ import android.widget.ImageView;
 public class BGAImage {
     private static BGAImageLoader sImageLoader;
 
+    public static enum ImageLoader {
+        Glide,
+        Picasso,
+        UIL,
+        XUtils;
+    }
+
     private BGAImage() {
     }
 
+    public static final void setImageLoader(BGAImageLoader imageLoader) {
+        sImageLoader = imageLoader;
+    }
+    public static final void setImageLoader(ImageLoader imageLoader) {
+        switch (imageLoader) {
+            case Glide:
+                sImageLoader = new BGAGlideImageLoader();
+                break;
+            case Picasso:
+                sImageLoader = new BGAPicassoImageLoader();
+                break;
+            case UIL:
+                sImageLoader = new BGAUILImageLoader();
+                break;
+            case XUtils:
+                sImageLoader = new BGAXUtilsImageLoader();
+                break;
+        }
+    }
     private static final BGAImageLoader getImageLoader() {
         if (sImageLoader == null) {
             synchronized (BGAImage.class) {
@@ -47,6 +75,21 @@ public class BGAImage {
     }
 
     public static void displayImage(Activity activity, ImageView imageView, String path, @DrawableRes int loadingResId, @DrawableRes int failResId, int width, int height, final BGAImageLoader.DisplayDelegate delegate) {
+        // 三星note3 图片尺寸过大，显示不了
+        if (width > 1080) {
+            width = 1080;
+        }
+        if (width > BGAPhotoPickerUtil.getScreenWidth(activity)*0.8) {
+            width = (int) (BGAPhotoPickerUtil.getScreenWidth(activity)*0.8);
+        }
+
+        if (height > 1080) {
+            height = 1080;
+        }
+        if (height > BGAPhotoPickerUtil.getScreenHeight(activity)*0.8) {
+            height = (int) (BGAPhotoPickerUtil.getScreenHeight(activity)*0.8);
+        }
+
         getImageLoader().displayImage(activity, imageView, path, loadingResId, failResId, width, height, delegate);
     }
 

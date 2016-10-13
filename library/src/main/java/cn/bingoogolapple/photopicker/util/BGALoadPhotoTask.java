@@ -34,6 +34,13 @@ public class BGALoadPhotoTask extends BGAAsyncTask<Void, ArrayList<BGAImageFolde
     }
 
     private static boolean isImageFile(String path) {
+        String filename = path.toLowerCase();
+        if (filename.endsWith(".png")
+                || filename.endsWith(".jpg")
+                || filename.endsWith(".jpeg")) {
+            return true;
+        }
+
         // 获取图片的宽和高，但不把图片加载到内存中
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -43,7 +50,7 @@ public class BGALoadPhotoTask extends BGAAsyncTask<Void, ArrayList<BGAImageFolde
 
     @Override
     protected ArrayList<BGAImageFolderModel> doInBackground(Void... voids) {
-        ArrayList<BGAImageFolderModel> imageFolderModels = new ArrayList();
+        ArrayList<BGAImageFolderModel> imageFolderModels = new ArrayList<>();
         BGAImageFolderModel allImageFolderModel = new BGAImageFolderModel(mTakePhotoEnabled);
         HashMap<String, BGAImageFolderModel> imageFolderModelMap = new HashMap<>();
 

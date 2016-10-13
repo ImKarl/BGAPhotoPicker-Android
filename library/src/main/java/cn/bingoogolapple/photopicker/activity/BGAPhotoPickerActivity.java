@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildClickListener;
 import cn.bingoogolapple.photopicker.R;
 import cn.bingoogolapple.photopicker.adapter.BGAPhotoPickerAdapter;
+import cn.bingoogolapple.photopicker.imageloader.BGAImage;
+import cn.bingoogolapple.photopicker.imageloader.BGAImageLoader;
 import cn.bingoogolapple.photopicker.imageloader.BGARVOnScrollListener;
 import cn.bingoogolapple.photopicker.model.BGAImageFolderModel;
 import cn.bingoogolapple.photopicker.pw.BGAPhotoFolderPw;
@@ -86,6 +88,17 @@ public class BGAPhotoPickerActivity extends BGAPPToolbarActivity implements BGAO
     private long mLastShowPhotoFolderTime;
     private BGALoadPhotoTask mLoadPhotoTask;
     private AppCompatDialog mLoadingDialog;
+
+    /**
+     * 初始化
+     * @param imageLoader
+     */
+    public static void init(BGAImageLoader imageLoader) {
+        BGAImage.setImageLoader(imageLoader);
+    }
+    public static void init(BGAImage.ImageLoader imageLoader) {
+        BGAImage.setImageLoader(imageLoader);
+    }
 
     /**
      * @param context        应用程序上下文
