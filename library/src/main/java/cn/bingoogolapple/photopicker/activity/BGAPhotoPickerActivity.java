@@ -120,9 +120,6 @@ public class BGAPhotoPickerActivity extends BGAPPToolbarActivity implements BGAO
     public static void init(BGAImageLoader imageLoader) {
         BGAImage.setImageLoader(imageLoader);
     }
-    public static void init(BGAImage.ImageLoader imageLoader) {
-        BGAImage.setImageLoader(imageLoader);
-    }
 
     /**
      * @param context        应用程序上下文

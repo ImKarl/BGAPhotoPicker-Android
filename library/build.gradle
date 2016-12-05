@@ -19,11 +19,9 @@ dependencies {
     provided 'com.android.support:recyclerview-v7:25.0.1'
     provided 'cn.bingoogolapple:bga-adapter:1.1.5@aar'
     provided 'com.github.bumptech.glide:glide:3.7.0'
-    provided 'com.squareup.picasso:picasso:2.5.2'
-    provided 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    provided 'org.xutils:xutils:3.3.36'
+    provided 'com.android.support:support-v4:25.0.1'
     compile 'com.github.chrisbanes:PhotoView:1.3.0'
 }
 
 // gradle uploadArchives
-apply from: 'https://raw.githubusercontent.com/bingoogolapple/PublishAar/master/central-publish.gradle'
+//apply from: 'https://raw.githubusercontent.com/bingoogolapple/PublishAar/master/central-publish.gradle'

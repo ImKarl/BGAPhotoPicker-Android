@@ -30,52 +30,15 @@ import cn.bingoogolapple.photopicker.util.BGAPhotoPickerUtil;
 public class BGAImage {
     private static BGAImageLoader sImageLoader;
 
-    public static enum ImageLoader {
-        Glide,
-        Picasso,
-        UIL,
-        XUtils;
-    }
-
     private BGAImage() {
     }
 
     public static final void setImageLoader(BGAImageLoader imageLoader) {
         sImageLoader = imageLoader;
     }
-    public static final void setImageLoader(ImageLoader imageLoader) {
-        switch (imageLoader) {
-            case Glide:
-                sImageLoader = new BGAGlideImageLoader();
-                break;
-            case Picasso:
-                sImageLoader = new BGAPicassoImageLoader();
-                break;
-            case UIL:
-                sImageLoader = new BGAUILImageLoader();
-                break;
-            case XUtils:
-                sImageLoader = new BGAXUtilsImageLoader();
-                break;
-        }
-    }
     private static final BGAImageLoader getImageLoader() {
         if (sImageLoader == null) {
-            synchronized (BGAImage.class) {
-                if (sImageLoader == null) {
-                    if (isClassExists("com.bumptech.glide.Glide")) {
-                        sImageLoader = new BGAGlideImageLoader();
-                    } else if (isClassExists("com.squareup.picasso.Picasso")) {
-                        sImageLoader = new BGAPicassoImageLoader();
-                    } else if (isClassExists("com.nostra13.universalimageloader.core.ImageLoader")) {
-                        sImageLoader = new BGAUILImageLoader();
-                    } else if (isClassExists("org.xutils.x")) {
-                        sImageLoader = new BGAXUtilsImageLoader();
-                    } else {
-                        throw new RuntimeException("必须在你的build.gradle文件中配置「Glide、Picasso、universal-image-loader、XUtils3」中的某一个图片加载库的依赖");
-                    }
-                }
-            }
+            sImageLoader = new BGAGlideImageLoader();
         }
         return sImageLoader;
     }

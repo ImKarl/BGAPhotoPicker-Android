@@ -1,9 +1,6 @@
 package cn.bingoogolapple.photopicker.demo;
 
 import android.app.Application;
-import android.util.Log;
-
-import com.squareup.leakcanary.LeakCanary;
 
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com
@@ -15,10 +12,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            Log.d("App", "In LeakCanary Analyzer Process");
-            return;
-        }
-        LeakCanary.install(this);
     }
+
 }
