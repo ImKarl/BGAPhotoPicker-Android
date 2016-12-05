@@ -27,8 +27,8 @@ dependencies {
 
     // -------------------- 以下4个库是必须依赖的 ----------------------------
 //    compile 'cn.bingoogolapple:bga-photopicker:1.1.3@aar'
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'cn.bingoogolapple:bga-adapter:1.1.0@aar'
     // -------------------- 以上4个库是必须依赖的 ----------------------------
 
